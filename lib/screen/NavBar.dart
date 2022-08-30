@@ -5,6 +5,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
+        padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
             accountName: Text('Oflutter.com'),
@@ -26,6 +27,21 @@ class NavBar extends StatelessWidget {
                   image: NetworkImage(
                       'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
             ),
+          ),
+          ListTile(
+            leading: Icon(Icons.all_inbox_rounded),
+            title: Text('Inventory'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.align_vertical_bottom_rounded),
+            title: Text('Sell Stats'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.account_box),
+            title: Text('Log Out'),
+            onTap: () => null,
           ),
         ],
       ),
