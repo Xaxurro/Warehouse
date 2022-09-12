@@ -21,9 +21,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
       appBar: AppBar(
         title: Text('Bottom Tab Bar'),
       ),
-      body: Center(
-        child: Text('TEXTOOOOOOOOOOOO'),
-      ),
+      body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -46,7 +44,9 @@ class _BottomTabBarState extends State<BottomTabBar> {
         currentIndex: _index,
         onTap: (index) {
           print(index);
-          setState(() {});
+          setState(() {
+            _index = index;
+          });
         },
       ),
     );
