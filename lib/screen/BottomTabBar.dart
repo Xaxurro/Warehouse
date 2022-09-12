@@ -20,6 +20,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bottom Tab Bar'),
+        backgroundColor: Colors.red,
       ),
       body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar(
@@ -27,19 +28,19 @@ class _BottomTabBarState extends State<BottomTabBar> {
           BottomNavigationBarItem(
               icon: Icon(Icons.house),
               label: 'Home',
-              backgroundColor: Colors.lightBlue),
+              backgroundColor: Colors.red),
           BottomNavigationBarItem(
               icon: Icon(Icons.warehouse),
               label: 'Items',
-              backgroundColor: Colors.lightBlue),
+              backgroundColor: Colors.red),
           BottomNavigationBarItem(
               icon: Icon(Icons.location_on),
               label: 'Locations',
-              backgroundColor: Colors.lightBlue),
+              backgroundColor: Colors.red),
           BottomNavigationBarItem(
               icon: Icon(Icons.people_alt),
               label: 'Personal',
-              backgroundColor: Colors.lightBlue),
+              backgroundColor: Colors.red),
         ],
         currentIndex: _index,
         onTap: (index) {

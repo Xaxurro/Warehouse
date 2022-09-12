@@ -11,10 +11,11 @@ class TabScreen extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.red,
             bottom: TabBar(
                 indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(50), // Creates border
-                    color: Colors.lightBlue.shade200),
+                    color: Colors.red.shade200),
                 tabs: [
                   Icon(Icons.card_giftcard_sharp),
                   Icon(Icons.flag),
