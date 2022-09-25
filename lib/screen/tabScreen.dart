@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screen/tabs/tab1.dart';
-import 'package:flutter_application_1/screen/tabs/tab2.dart';
-import 'package:flutter_application_1/screen/tabs/tab3.dart';
-import 'package:flutter_application_1/screen/tabs/tab4.dart';
+import 'package:warehouse/screen/tabs/tab1.dart';
+import 'package:warehouse/screen/tabs/tab2.dart';
+import 'package:warehouse/screen/tabs/tab3.dart';
+import 'package:warehouse/screen/tabs/tab4.dart';
 
 class TabScreen extends StatelessWidget {
   @override

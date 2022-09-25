@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screen/home_screen.dart';
-import 'package:flutter_application_1/screen/tabScreen.dart';
+import 'package:warehouse/screen/home_screen.dart';
+import 'package:warehouse/screen/tabScreen.dart';
+import 'package:warehouse/screen/BottomTabBar.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+void main() => runApp(App());
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Warehouse',
-      home: TabScreen(),
-    );
-  }
+class App extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+        	title: 'Titulo de MaterialApp',
+          theme: ThemeData.dark(),
+          home: BottomTabBar(),
+        );
+    }
 }

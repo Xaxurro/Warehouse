@@ -1,8 +1,9 @@
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screen/tabs/tab1.dart';
-import 'package:flutter_application_1/screen/tabs/tab2.dart';
-import 'package:flutter_application_1/screen/tabs/tab3.dart';
-import 'package:flutter_application_1/screen/tabs/tab4.dart';
+import 'package:warehouse/screen/tabs/tab1.dart';
+import 'package:warehouse/screen/tabs/tab2.dart';
+import 'package:warehouse/screen/tabs/tab3.dart';
+import 'package:warehouse/screen/tabs/tab4.dart';
 
 class BottomTabBar extends StatefulWidget {
   BottomTabBar({Key? key}) : super(key: key);
@@ -23,33 +24,54 @@ class _BottomTabBarState extends State<BottomTabBar> {
         backgroundColor: Colors.red,
       ),
       body: _pages[_index],
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.house),
-              label: 'Home',
-              backgroundColor: Colors.red),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.warehouse),
-              label: 'Items',
-              backgroundColor: Colors.red),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.location_on),
-              label: 'Locations',
-              backgroundColor: Colors.red),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.people_alt),
-              label: 'Personal',
-              backgroundColor: Colors.red),
+      bottomNavigationBar: GNav(
+        tabs: [
+          GButton(
+            icon: Icons.house,
+            text: 'Home',
+          ),
+          GButton(
+            icon: Icons.warehouse,
+            text: 'Likes',
+          ),
+          GButton(
+            icon: Icons.location_on,
+            text: 'Search',
+          ),
+          GButton(
+            icon: Icons.people_alt,
+            text: 'Profile',
+          )
         ],
-        currentIndex: _index,
-        onTap: (index) {
-          print(index);
-          setState(() {
-            _index = index;
-          });
-        },
       ),
+      // BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.house),
+      //         label: 'Home',
+      //         backgroundColor: Colors.red),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.warehouse),
+      //         label: 'Items',
+      //         backgroundColor: Colors.red),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.location_on),
+      //         label: 'Locations',
+      //         backgroundColor: Colors.red),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.people_alt),
+      //         label: 'Personal',
+      //         backgroundColor: Colors.red),
+      //   ],
+      //   selectedItemColor: Colors.white,
+      //   unselectedItemColor: Colors.black,
+      //   currentIndex: _index,
+      //   onTap: (index) {
+      //     setState(() {
+      //       _index = index;
+      //     });
+      //   },
+      // ),
     );
   }
 }
