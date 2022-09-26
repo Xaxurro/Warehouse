@@ -20,7 +20,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Tab Bar'),
+        title: Text('Warehouse'),
         backgroundColor: Colors.redAccent.shade700,
       ),
       body: _pages[_index],
@@ -49,7 +49,9 @@ class _BottomTabBarState extends State<BottomTabBar> {
               _index = index;
             });
           },
-          backgroundColor: Colors.redAccent.shade700),
+          backgroundColor: Colors.redAccent.shade700,
+          ),
+          
       // BottomNavigationBar(
       //   items: [
       //     BottomNavigationBarItem(

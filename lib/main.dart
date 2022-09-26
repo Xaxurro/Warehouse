@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse/screen/BottomTabBar.dart';
 import 'package:warehouse/screen/home_screen.dart';
 
 void main() {
@@ -12,8 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Warehouse',
-      home: HomeScreen(),
+      home: BottomTabBar(),
     );
   }
 }
