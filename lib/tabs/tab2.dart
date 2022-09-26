@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse/screen/tabs/addItem.dart';
+import 'package:warehouse/tabs/addItem.dart';
 
 class Tab2Page extends StatelessWidget {
   const Tab2Page({Key? key}) : super(key: key);
