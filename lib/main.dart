@@ -36,7 +36,8 @@ class _BottomTabBarState extends State<BottomTabBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Tab Bar'),
+        title: Text('Warehouse'),
+        centerTitle: true,
         backgroundColor: Colors.redAccent.shade700,
       ),
       body: _pages[_index],
