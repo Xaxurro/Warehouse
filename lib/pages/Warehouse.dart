@@ -14,7 +14,7 @@ class Tab2Page extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,MaterialPageRoute(
-              builder: (context)=> const addItem()
+              builder: (context)=> addItem()
             ),
           );
         },
