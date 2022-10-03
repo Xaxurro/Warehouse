@@ -16,11 +16,17 @@ class ChangeColorPage extends StatelessWidget {
       body: ListView(
         children: [
           tileColor("Rojo", "", Icons.color_lens, Colors.redAccent.shade700),
-          Divider(),
+          Divider(thickness: 1,),
           tileColor("Azul", "", Icons.color_lens, Colors.blueAccent.shade700),
-          Divider(),
-          tileColor("Green", "", Icons.color_lens, Colors.greenAccent.shade700),
-          Divider(),
+          Divider(thickness: 1,),
+          tileColor("Amarillo", "", Icons.color_lens, Colors.yellowAccent.shade700),
+          Divider(thickness: 1,),
+          tileColor("Morado", "", Icons.color_lens, Colors.purpleAccent.shade700),
+          Divider(thickness: 1,),
+          tileColor("Verde", "", Icons.color_lens, Colors.greenAccent.shade700),
+          Divider(thickness: 1,),
+          tileColor("Naraja", "", Icons.color_lens, Colors.orangeAccent.shade700),
+          Divider(thickness: 1,),
         ]
       ),
     );
