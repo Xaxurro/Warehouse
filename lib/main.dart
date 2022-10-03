@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import 'package:warehouse/tabs/tab1.dart';
-import 'package:warehouse/tabs/tab2.dart';
-import 'package:warehouse/tabs/tab3.dart';
-import 'package:warehouse/tabs/tab4.dart';
+import 'package:warehouse/globals.dart' as globals;
+import 'package:warehouse/pages/Dashboard.dart';
+import 'package:warehouse/pages/Options/changeColor.dart';
+import 'package:warehouse/pages/Warehouse.dart';
+import 'package:warehouse/pages/Locations.dart';
+import 'package:warehouse/pages/Profile.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +40,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
       appBar: AppBar(
         title: Text('Warehouse'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent.shade700,
+        backgroundColor: globals.mainColor,
       ),
       body: _pages[_index],
       bottomNavigationBar: GNav(
@@ -66,7 +68,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
               _index = index;
             });
           },
-          backgroundColor: Colors.redAccent.shade700),
+          backgroundColor: globals.mainColor),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(const addItem());
+import 'package:warehouse/globals.dart' as globals;
 
 class addItem extends StatelessWidget {
   const addItem({super.key});
@@ -8,7 +7,7 @@ class addItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Add Item',
       home: Scaffold(
         appBar: AppBar(
           leading :IconButton(icon: Icon(Icons.turn_left,color: Colors.white,),onPressed: () {
@@ -16,7 +15,7 @@ class addItem extends StatelessWidget {
           },) ,
           title: const Text('Add item'),
           centerTitle: true,
-          backgroundColor: Colors.redAccent.shade700,
+          backgroundColor: globals.mainColor,
         ),
         body: const Center(
           child: Text('input text'),
