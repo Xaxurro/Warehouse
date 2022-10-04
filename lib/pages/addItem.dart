@@ -23,8 +23,7 @@ class addItem extends StatelessWidget {
           backgroundColor: globals.mainColor,
         ),
         body: itemBody(),
-        ),
-      
+      ),
     );
   }
 }
