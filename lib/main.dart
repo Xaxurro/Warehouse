@@ -46,19 +46,19 @@ class _BottomTabBarState extends State<BottomTabBar> {
       bottomNavigationBar: GNav(
           tabs: [
             GButton(
-              icon: Icons.house_outlined,
+              icon: (_index == 0) ? Icons.house : Icons.house_outlined,
               text: 'Dashboard',
             ),
             GButton(
-              icon: Icons.warehouse_outlined,
+              icon: (_index == 1) ? Icons.warehouse : Icons.warehouse_outlined,
               text: 'Warehouse',
             ),
             GButton(
-              icon: Icons.location_on_outlined,
+              icon: (_index == 2) ? Icons.location_on : Icons.location_on_outlined,
               text: 'Location',
             ),
             GButton(
-              icon: Icons.person_outline,
+              icon: (_index == 3) ? Icons.person : Icons.person_outlined,
               text: 'Profile',
             )
           ],
