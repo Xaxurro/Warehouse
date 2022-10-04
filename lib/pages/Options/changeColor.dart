@@ -12,6 +12,15 @@ class ChangeColorPage extends StatelessWidget {
         title: Text('Warehouse'),
         centerTitle: true,
         backgroundColor: globals.mainColor,
+       leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
       ),
       body: ListView(
         children: [
