@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/pages/Dashboard.dart';
 import 'package:warehouse/pages/Options/changeColor.dart';
+import 'package:warehouse/pages/Dashboard.dart';
 import 'package:warehouse/pages/Warehouse.dart';
 import 'package:warehouse/pages/Locations.dart';
 import 'package:warehouse/pages/Profile.dart';
