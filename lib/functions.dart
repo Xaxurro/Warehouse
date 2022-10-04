@@ -23,13 +23,14 @@ ListTile tilePage(String title, String subtitle, IconData icon, BuildContext con
     } ,
   );
 
-ListTile tileColor(String title, String subtitle, IconData icon, Color color) => 
+ListTile tileColor(String title, String subtitle, IconData icon, Color color,BuildContext context) => 
   ListTile(
     title: Text(title, style: DefaultStyle.Title,),
     subtitle: Text(subtitle),
     leading: Icon(icon),
     onTap: () {
       globals.mainColor = color;
+      Navigator.pop(context);
     } ,
   );
 
