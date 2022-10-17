@@ -10,7 +10,7 @@ class addLocation extends StatelessWidget {
       title: 'Add Location',
       home: Scaffold(
         appBar: AppBar(
-          leading :IconButton(icon: Icon(Icons.turn_left,color: Colors.white,),onPressed: () {
+          leading :IconButton(icon: Icon(Icons.arrow_back_ios_new,color: Colors.white,),onPressed: () {
             Navigator.pop(context);
           },) ,
           title: const Text('Add Location'),
