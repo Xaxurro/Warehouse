@@ -5,10 +5,15 @@ class Tab1Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Tab 1',
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return Container(
+      color: Colors.black,
+      height: 100,
+      width: 100,
+      padding: EdgeInsets.all(15),
+      child: Container(
+        color: Colors.red,
+        height: 10,
+        width: 10
       ),
     );
   }
