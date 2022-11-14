@@ -9,11 +9,11 @@ class Autos extends Model
 {
     use HasFactory;
 
-    protected $table = "autos";
+    public $table = "autos";
     public $timestamps = false;
-    protected $primaryKey = "patente";
-    protected $incrementing = false;
-    protected $keyType = "string";
+    public $primaryKey = "patente";
+    public $incrementing = false;
+    public $keyType = "string";
 
     public function marca(){
         return this->belongsTo(Marcas::class);

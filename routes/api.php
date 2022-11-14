@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcasController;
+use App\Http\Controllers\AutosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/marcas",[MarcasController::class, "index"]);
+Route::get("/autos",[AutosController::class, "index"]);

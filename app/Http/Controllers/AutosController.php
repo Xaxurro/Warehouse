@@ -14,7 +14,7 @@ class AutosController extends Controller
      */
     public function index()
     {
-        //
+        return Autos::all();
     }
 
     /**
@@ -31,22 +31,22 @@ class AutosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Autos  $autos
+     * @param  \App\Models\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function show(Autos $autos)
+    public function show(Auto $auto)
     {
-        //
+        return $auto;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Autos  $autos
+     * @param  \App\Models\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autos $autos)
+    public function update(Request $request, Auto $auto)
     {
         //
     }
@@ -54,10 +54,10 @@ class AutosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Autos  $autos
+     * @param  \App\Models\Auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Autos $autos)
+    public function destroy(Auto $auto)
     {
         //
     }
