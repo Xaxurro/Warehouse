@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\AutosController;
+use App\Http\Controllers\PacientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("/marcas",[MarcasController::class, "index"]);
 Route::get("/autos",[AutosController::class, "index"]);
+Route::get("/pacientes",[PacientesController::class, "index"]);
+Route::get("/pacientes/{pacientes}",[PacientesController::class, "show"]);
+Route::put("/pacientes/{pacientes}",[PacientesController::class, "update"]);
+Route::post("/pacientes",[PacientesController::class, "store"]);
+Route::delete("/pacientes/{pacientes}",[PacientesController::class, "destroy"]);
