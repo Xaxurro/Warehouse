@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:warehouse/pages/addItem.dart';
 import 'package:warehouse/globals.dart' as globals;
-class Tab2Page extends StatelessWidget {
-  const Tab2Page({Key? key}) : super(key: key);
+class WarehousePage extends StatelessWidget {
+  const WarehousePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

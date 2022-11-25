@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/pages/Options/changeColor.dart';
-import 'package:warehouse/functions.dart';
+import 'package:warehouse/Functions/TileFunctions.dart';
 
-class Tab4Page extends StatelessWidget {
-  const Tab4Page({Key? key}) : super(key: key);
+class ConfigPage extends StatelessWidget {
+  const ConfigPage({Key? key}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {

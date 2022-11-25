@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
+import 'package:warehouse/pages/bodies/AddLocationForm.dart';
 
 class addLocation extends StatelessWidget {
   const addLocation({super.key});
@@ -10,15 +11,21 @@ class addLocation extends StatelessWidget {
       title: 'Add Location',
       home: Scaffold(
         appBar: AppBar(
-          leading :IconButton(icon: Icon(Icons.arrow_back_ios_new,color: Colors.white,),onPressed: () {
-            Navigator.pop(context);
-          },) ,
+          leading :IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           title: const Text('Add Location'),
           centerTitle: true,
           backgroundColor: globals.mainColor,
         ),
         body: const Center(
-          child: Text('Hello World'),
+          child: AddLocationForm(),
         ),
       ),
     );

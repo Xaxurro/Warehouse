@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warehouse/functions.dart';
+import 'package:warehouse/Functions/TileFunctions.dart';
 import 'package:warehouse/globals.dart' as globals;
 
 class ChangeColorPage extends StatelessWidget {

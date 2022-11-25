@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class BottomTabBar extends StatefulWidget {
   BottomTabBar({Key? key}) : super(key: key);
 
@@ -31,7 +32,7 @@ class BottomTabBar extends StatefulWidget {
 
 class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
-  List<Widget> _pages = [Tab1Page(), Tab2Page(), Tab3Page(), Tab4Page()];
+  List<Widget> _pages = [DashboardPage(), WarehousePage(), LocationsPage(), ConfigPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +70,6 @@ class _BottomTabBarState extends State<BottomTabBar> {
             });
           },
           backgroundColor: globals.mainColor),
-    );
+      );
   }
 }

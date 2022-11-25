@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/style.dart' as DefaultStyle;
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/pages/Options/changeColor.dart';
+//import 'package:warehouse/pages/Options/changeColor.dart';
 
 ListTile tile(String title, String subtitle, IconData icon) =>
   ListTile(
@@ -34,3 +34,4 @@ ListTile tileColor(String title, String subtitle, IconData icon, Color color, Bu
       Navigator.pop(context, color);
     } ,
   );
+

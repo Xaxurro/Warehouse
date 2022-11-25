@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:warehouse/pages/addLocation.dart';
 import 'package:warehouse/globals.dart' as globals;
 
-class Tab3Page extends StatelessWidget {
-  const Tab3Page({Key? key}) : super(key: key);
+class LocationsPage extends StatelessWidget {
+  const LocationsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
