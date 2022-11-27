@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ApiWarehouseSeeder::class);
+        $this->call(ItemsSeeder::class);
     }
 }
