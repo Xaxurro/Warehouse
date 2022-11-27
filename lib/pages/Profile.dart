@@ -9,7 +9,7 @@ class ConfigPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        tilePage('Color', 'Color de la aplicacion', Icons.color_lens_sharp, context, const ChangeColorPage()),
+        tilePage('Color', 'Color App', Icons.color_lens_sharp, context, const ChangeColorPage()),
         Divider(),
       ],
     );

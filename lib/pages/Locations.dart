@@ -9,7 +9,7 @@ class LocationsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: Text('Tab 3', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+        child: Text('List of locations', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

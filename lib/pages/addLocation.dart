@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/pages/bodies/AddLocationForm.dart';
+import 'package:warehouse/pages/Forms/AddLocationForm.dart';
 
 class addLocation extends StatelessWidget {
   const addLocation({super.key});

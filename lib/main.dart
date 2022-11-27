@@ -32,7 +32,7 @@ class BottomTabBar extends StatefulWidget {
 
 class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
-  List<Widget> _pages = [DashboardPage(), WarehousePage(), LocationsPage(), ConfigPage()];
+  List<Widget> _pages = [DashboardPage(), WarehousePage(), LocationsPage(), ConfigPage()]; 
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class WarehousePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: Text('Tab 2', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+        child: Text('Warehouses List', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
