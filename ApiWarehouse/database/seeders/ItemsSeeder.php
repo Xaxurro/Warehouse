@@ -24,6 +24,6 @@ class ItemsSeeder extends Seeder
                 'category' => Str::random(50),
                 'description' => Str::random(150)
             ]
-        );
+            ]);
     }
 }
