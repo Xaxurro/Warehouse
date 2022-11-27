@@ -18,35 +18,7 @@ class ApiWarehouse extends Seeder
                 'favorite' => rand(1,0),
                 'category' => Str::random(50),
                 'description' => Str::random(150)
-            ],
-            [
-                'name' => Str::random(10),
-                'stock' => rand(1,1000),
-                'favorite' => rand(1,0),
-                'category' => Str::random(50),
-                'description' => Str::random(150)
-            ],
-            [
-                'name' => Str::random(10),
-                'stock' => rand(1,1000),
-                'favorite' => rand(1,0),
-                'category' => Str::random(50),
-                'description' => Str::random(150)
-            ],
-            [
-                'name' => Str::random(10),
-                'stock' => rand(1,1000),
-                'favorite' => rand(1,0),
-                'category' => Str::random(50),
-                'description' => Str::random(150)
-            ],
-            [
-                'name' => Str::random(10),
-                'stock' => rand(1,1000),
-                'favorite' => rand(1,0),
-                'category' => Str::random(50),
-                'description' => Str::random(150)
-            ],
+            ]
         );
     }
 }
