@@ -3,17 +3,21 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:warehouse/globals.dart' as globals;
 import 'package:warehouse/pages/Dashboard.dart';
+import 'package:warehouse/pages/Login.dart';
 import 'package:warehouse/pages/Warehouse.dart';
 import 'package:warehouse/pages/Locations.dart';
 import 'package:warehouse/pages/Profile.dart';
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +36,12 @@ class BottomTabBar extends StatefulWidget {
 
 class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
-  List<Widget> _pages = [DashboardPage(), WarehousePage(), LocationsPage(), ConfigPage()]; 
+  List<Widget> _pages = [
+    DashboardPage(),
+    WarehousePage(),
+    LocationsPage(),
+    LoginPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +64,13 @@ class _BottomTabBarState extends State<BottomTabBar> {
               text: 'Warehouse',
             ),
             GButton(
-              icon: (_index == 2) ? Icons.location_on : Icons.location_on_outlined,
+              icon: (_index == 2)
+                  ? Icons.location_on
+                  : Icons.location_on_outlined,
               text: 'Location',
             ),
             GButton(
-              icon: (_index == 3) ? Icons.person : Icons.person_outlined,
+              icon: (_index == 3) ? Icons.login : Icons.login_outlined,
               text: 'Profile',
             )
           ],
@@ -70,6 +81,6 @@ class _BottomTabBarState extends State<BottomTabBar> {
             });
           },
           backgroundColor: globals.mainColor),
-      );
+    );
   }
 }
