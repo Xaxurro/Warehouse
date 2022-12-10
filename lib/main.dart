@@ -6,7 +6,6 @@ import 'package:warehouse/pages/Dashboard.dart';
 import 'package:warehouse/pages/Login.dart';
 import 'package:warehouse/pages/Warehouse.dart';
 import 'package:warehouse/pages/Locations.dart';
-import 'package:warehouse/pages/Profile.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {

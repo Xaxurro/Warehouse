@@ -124,16 +124,16 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
-    <string name="default_web_client_id" translatable="false">958336712098-f1fa4jgjaj9pt0qjk359lnsfb0d9nkoh.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">575708658647-t02b6m3ibo2c78ikacls9ehf9t2710iv.apps.googleusercontent.com</string>
     <string name="fallback_menu_item_copy_link">Copy link</string>
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
-    <string name="gcm_defaultSenderId" translatable="false">958336712098</string>
-    <string name="google_api_key" translatable="false">AIzaSyAqc7JUYpg11L8pH0V4GElO8ro3mftKpeI</string>
-    <string name="google_app_id" translatable="false">1:958336712098:android:89328beeab03f9c62f06fb</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAqc7JUYpg11L8pH0V4GElO8ro3mftKpeI</string>
-    <string name="google_storage_bucket" translatable="false">dam-22.appspot.com</string>
-    <string name="project_id" translatable="false">dam-22</string>
+    <string name="gcm_defaultSenderId" translatable="false">575708658647</string>
+    <string name="google_api_key" translatable="false">AIzaSyDsl9vSGRzyYMWbV8_rWOf9Nj8QYVbDUIs</string>
+    <string name="google_app_id" translatable="false">1:575708658647:android:0af725ee3cc6ab48432992</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDsl9vSGRzyYMWbV8_rWOf9Nj8QYVbDUIs</string>
+    <string name="google_storage_bucket" translatable="false">warehouse-3696c.appspot.com</string>
+    <string name="project_id" translatable="false">warehouse-3696c</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when

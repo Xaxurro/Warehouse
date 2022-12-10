@@ -281,6 +281,7 @@ io/grpc/internal/ClientTransportFactory.class
 io/grpc/internal/ConnectivityStateManager.class
 io/grpc/internal/DelayedClientTransport.class
 io/grpc/internal/DelayedStream.class
+io/grpc/internal/KeepAliveEnforcer.class
 io/grpc/internal/ManagedClientTransport.class
 io/grpc/internal/NoopClientStream.class
 io/grpc/internal/RetriableStream$State.class
