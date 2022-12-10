@@ -30,15 +30,15 @@ class _WarehousePageState extends State<WarehousePage> {
             separatorBuilder: (context, index) => Divider(),
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
-              var producto = snapshot.data!.docs[index];
+              var item = snapshot.data!.docs[index];
               //print('PRODUCTO:' + producto.data().toString());
               return ListTile(
                 leading: Icon(
                   Icons.handyman,
                   color: Colors.deepPurple,
                 ),
-                title: Text(producto['nombre']),
-                subtitle: Text('Stock:${producto['stock'].toString()}'),
+                title: Text(item['Item_name']),
+                subtitle: Text('State:${item['state'].toString()}'),
                 /*
                 trailing: OutlinedButton(
                   child: Text('Borrar'),
