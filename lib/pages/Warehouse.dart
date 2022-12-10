@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:warehouse/pages/addItem.dart';
 import 'package:warehouse/globals.dart' as globals;
 import 'package:warehouse/providers/ItemProvider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class WarehousePage extends StatefulWidget {
   const WarehousePage({super.key});
 
@@ -30,15 +31,14 @@ class _WarehousePageState extends State<WarehousePage> {
             separatorBuilder: (context, index) => Divider(),
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
-              var producto = snapshot.data!.docs[index];
-              //print('PRODUCTO:' + producto.data().toString());
+              var item = snapshot.data!.docs[index];
               return ListTile(
                 leading: Icon(
                   Icons.handyman,
                   color: Colors.deepPurple,
                 ),
-                title: Text(producto['nombre']),
-                subtitle: Text('Stock:${producto['stock'].toString()}'),
+                title: Text(item['Item_name']),
+                subtitle: Text('State:${item['State'].toString()}'),
                 /*
                 trailing: OutlinedButton(
                   child: Text('Borrar'),

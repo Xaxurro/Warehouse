@@ -1,6 +1,6 @@
 {
-    "name": "ejemplo_firebase",
-    "short_name": "ejemplo_firebase",
+    "name": "warehouse",
+    "short_name": "warehouse",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

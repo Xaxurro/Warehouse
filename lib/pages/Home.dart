@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ejemplo_firebase/pages/login_page.dart';
-import 'package:ejemplo_firebase/pages/productos_agregar_page.dart';
-import 'package:ejemplo_firebase/services/firestore_service.dart';
+import 'package:warehouse/pages/Login.dart';
+import 'package:warehouse/pages/productos_agregar_page.dart';
+import 'package:warehouse/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
