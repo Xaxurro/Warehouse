@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.warehouse">
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+=======
+>>>>>>> parent of 2c16bc4 (esta va pa chachurro)
    <application
         android:label="warehouse"
         android:name="${applicationName}"
