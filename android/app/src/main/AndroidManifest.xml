@@ -5,7 +5,7 @@
 =======
 >>>>>>> parent of 2c16bc4 (esta va pa chachurro)
    <application
-        android:label="warehouse"
+        android:label="ejemplo_firebase"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
