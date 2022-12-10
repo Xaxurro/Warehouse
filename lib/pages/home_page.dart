@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ejemplo_firebase/pages/login_page.dart';
-import 'package:ejemplo_firebase/pages/productos_agregar_page.dart';
-import 'package:ejemplo_firebase/services/firestore_service.dart';
+import 'package:warehouse/pages/addItem.dart';
+// import 'package:ejemplo_firebase/pages/login_page.dart';
+// import 'package:ejemplo_firebase/pages/productos_agregar_page.dart';
+import 'package:warehouse/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
-          MdiIcons.firebase,
+          MdiIcons.warehouse,
           color: Colors.yellow,
         ),
         backgroundColor: Colors.deepPurple,
@@ -93,7 +94,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          MaterialPageRoute route = MaterialPageRoute(builder: ((context) => ProductosAgregarPage()));
+          MaterialPageRoute route = MaterialPageRoute(builder: ((context) => addItem()));
           Navigator.push(context, route);
         },
       ),
@@ -114,7 +115,7 @@ class HomePage extends StatelessWidget {
     sp.remove('userEmail');
 
     //redirigir al login
-    MaterialPageRoute route = MaterialPageRoute(builder: ((context) => LoginPage()));
+    MaterialPageRoute route = MaterialPageRoute(builder: ((context) => BottomAppBar()));
     Navigator.pushReplacement(context, route);
   }
 }

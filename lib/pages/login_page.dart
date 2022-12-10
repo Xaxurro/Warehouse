@@ -1,7 +1,8 @@
-import 'package:ejemplo_firebase/pages/home_page.dart';
+// import 'package:ejemplo_firebase/pages/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:warehouse/main.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
 
       //redirigir al home
       MaterialPageRoute route = MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => BottomTabBar(),
       );
       Navigator.pushReplacement(context, route);
     } on FirebaseAuthException catch (ex) {

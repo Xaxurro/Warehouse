@@ -1,4 +1,4 @@
-import 'package:ejemplo_firebase/services/firestore_service.dart';
+import 'package:warehouse/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 class ProductosAgregarPage extends StatefulWidget {
