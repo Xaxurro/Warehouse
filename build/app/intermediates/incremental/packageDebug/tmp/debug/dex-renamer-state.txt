@@ -1,4 +1,4 @@
-#Sat Dec 10 15:21:37 CLST 2022
+#Sat Dec 10 15:44:26 CLST 2022
 base.2=C\:\\Users\\Admn\\OneDrive\\Escritorio\\Progra\\Flutter\\Warehouse\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
 path.2=classes3.dex
 base.1=C\:\\Users\\Admn\\OneDrive\\Escritorio\\Progra\\Flutter\\Warehouse\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex

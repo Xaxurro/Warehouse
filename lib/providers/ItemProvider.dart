@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 //clase para realizar la conexión al API de monedas
 
 class ItemProvider {
+  /*
   void getItems() async {
     CollectionReference c = FirebaseFirestore.instance.collection("items");
     QuerySnapshot items = await c.get();
@@ -14,5 +15,12 @@ class ItemProvider {
         print(item.data());
       }
     }
+  }
+  */
+
+   Stream<QuerySnapshot> getItems() {
+    // return FirebaseFirestore.instance.collection('productos').snapshots();
+    //int limite = 10;
+    return FirebaseFirestore.instance.collection('items').where('Deleted', isEqualTo: false).snapshots();
   }
 }

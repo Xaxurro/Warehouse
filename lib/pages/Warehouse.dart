@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:warehouse/pages/addItem.dart';
@@ -14,16 +15,42 @@ class _WarehousePageState extends State<WarehousePage> {
   ItemProvider provider = new ItemProvider();
 
   @override
-  void initState() {
-    super.initState();
-    provider.getItems();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text("ola")
+      body: StreamBuilder(
+        stream: ItemProvider().getItems(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData || snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              var producto = snapshot.data!.docs[index];
+              //print('PRODUCTO:' + producto.data().toString());
+              return ListTile(
+                leading: Icon(
+                  Icons.handyman,
+                  color: Colors.deepPurple,
+                ),
+                title: Text(producto['nombre']),
+                subtitle: Text('Stock:${producto['stock'].toString()}'),
+                /*
+                trailing: OutlinedButton(
+                  child: Text('Borrar'),
+                  onPressed: () {
+                    FirestoreService().borrar(producto.id);
+                  },
+                ),
+                */
+              );
+            },
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
