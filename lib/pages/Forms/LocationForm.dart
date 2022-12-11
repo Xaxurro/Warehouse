@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:warehouse/Functions/FormFunctions.dart';
 //import 'package:flutter/services.dart';
 
-class AddLocationForm extends StatefulWidget {
-  const AddLocationForm({super.key});
+class LocationForm extends StatefulWidget {
+  const LocationForm({super.key});
 
   @override
-  AddLocationFormState createState() {
-    return AddLocationFormState();
+  LocationFormState createState() {
+    return LocationFormState();
   }
 }
 
-class AddLocationFormState extends State<AddLocationForm> {
+class LocationFormState extends State<LocationForm> {
   final _formKey = GlobalKey<FormState>();
   final LocationName = TextEditingController();
   final LocationDirection = TextEditingController();

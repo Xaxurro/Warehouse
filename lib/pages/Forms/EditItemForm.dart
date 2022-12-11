@@ -5,18 +5,26 @@ import 'package:warehouse/Functions/FormFunctions.dart';
 
 import '../../services/firestore_service.dart';
 
-class ItemForm extends StatefulWidget {
+class EditItemForm extends StatefulWidget {
+  //Se declara la variable que va a ser requerida para instanciar un objeto
   final String? id;
-  const ItemForm({super.key, required this.id});
+  const EditItemForm({super.key, required this.id});
 
 
   @override
-  ItemFormState createState() {
-    return ItemFormState();
+  EditItemFormState createState() {
+    //Obtenemos el doc especifico, aplicamos metodo get para recibir los datos y el metodo then para procesar todos los datos recibidos (1)
+    FirestoreService().getItem(id.toString()).get().then(
+      (DocumentSnapshot ds) {
+        //Lo parseamos a un map (Diccionario)
+        final data = ds.data() as Map<String, dynamic>;
+      }
+    );
+    return EditItemFormState();
   }
 }
 
-class ItemFormState extends State<ItemForm> {
+class EditItemFormState extends State<EditItemForm> {
   final _formKey = GlobalKey<FormState>();
 
   final item_name = TextEditingController();
@@ -28,18 +36,13 @@ class ItemFormState extends State<ItemForm> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.id != ""){
-      final item = FirestoreService().getItem(widget.id.toString()).get().then(
-        (DocumentSnapshot ds) {
-          final data = ds.data() as Map<String, dynamic>;
-          item_name.text = data["Item_name"];
-          type_name = data["Type_name"];
-          description.text = data["Description"];
-          state = data["State"];
-          favorite = data["Favorite"];
-        }
-      );
-    }
+    if (widget.data)
+    item_name.text = data["Item_name"];
+    type_name = data["Type_name"];
+    description.text = data["Description"];
+    state = data["State"];
+    favorite = data["Favorite"];
+    data.forEach((key, value) {print(key + " : " + value.toString());});
 
     return Form(
       key: _formKey,
@@ -55,57 +58,59 @@ class ItemFormState extends State<ItemForm> {
               return null;
             }),
       
-            //Stock
-            InputNumber("Stock", stock, (value) {
-              if (value == null || value.isEmpty) {
-                return "Enter Stock";
-              }
-              return null;
-            }),
-      
             //Estado
-            InputSelection(
-              "State",
-              context,
-              [
-                ListTile(
-                  leading: Icon(Icons.warehouse),
-                  title: Text("Warehouse"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    setState(() {
-                    state = "Warehouse";
-                    });
-                  },
+            Row(
+              children: [
+                InputSelection(
+                  "State",
+                  context,
+                  [
+                    ListTile(
+                      leading: Icon(Icons.warehouse),
+                      title: Text("Warehouse"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        setState(() {
+                        state = "Warehouse";
+                        });
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(CupertinoIcons.car),
+                      title: Text("Terrain"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        setState(() {
+                          state = "Terrain";
+                        });
+                      },
+                    ),
+                  ]
                 ),
-                ListTile(
-                  leading: Icon(CupertinoIcons.car),
-                  title: Text("Terrain"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    setState(() {
-                      state = "Terrain";
-                    });
-                  },
-                ),
-              ]
+                Text(state),
+              ],
             ),
             
             //Categoria
-            InputSelection(
-              "Type",
-              context,
-              [
-                ListTile(
-                  title: Text("test"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    setState(() {
-                      type_name = "test";
-                    });
-                  },
+            Row(
+              children: [
+                InputSelection(
+                  "Type",
+                  context,
+                  [
+                    ListTile(
+                      title: Text("test"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        setState(() {
+                          type_name = "test";
+                        });
+                      },
+                    ),
+                  ]
                 ),
-              ]
+                Text(type_name),
+              ],
             ),
       
             //Favorito

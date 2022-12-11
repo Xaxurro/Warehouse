@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:warehouse/pages/Forms/EditItemForm.dart';
 
-import 'package:warehouse/pages/addItem.dart';
+import 'package:warehouse/pages/Item.dart';
 import 'package:warehouse/globals.dart' as globals;
 import 'package:warehouse/services/firestore_service.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 class WarehousePage extends StatelessWidget {
   const WarehousePage({Key? key}) : super(key: key);
 
@@ -23,21 +25,51 @@ class WarehousePage extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
               var items = snapshot.data!.docs[index];
-              return ListTile(
-                leading: Icon(
-                  Icons.handyman,
-                  color: Colors.deepPurple,
+              //Lo que hace que al deslizar aparezcan opciones
+              return Slidable(
+                //izq a derecha
+                startActionPane: ActionPane(
+                  motion: const ScrollMotion(),
+                  children: [
+                    SlidableAction(
+                        backgroundColor: Colors.redAccent.shade400,
+                        icon: Icons.delete_outlined,
+                        label: "Delete",
+                        //Elimina ese item
+                        onPressed: (context) {
+                          FirestoreService().deleteItem(items.id);
+                        }
+                    )
+                  ],
                 ),
-                title: Text(items['Item_name']),
-                subtitle: Text('${items['Description'].toString()}'),
-                /*
-                trailing: OutlinedButton(
-                  child: Text('Borrar'),
-                  onPressed: () {
-                    FirestoreService().borrar(items.id);
-                  },
+                //derecha a izq
+                endActionPane: ActionPane(
+                  motion: const ScrollMotion(),
+                  children: [
+                    SlidableAction(
+                        backgroundColor: Colors.blueAccent.shade400,
+                        icon: Icons.edit_outlined,
+                        label: "Edit",
+                        //Ir a editar ese item
+                        onPressed: (context) {
+                          Navigator.push(
+                            context,MaterialPageRoute(
+                            //Se llama al contructor edit de la clase Item, recibe el id del item como parametro
+                              builder: (context)=> Item.edit(items.id)
+                            ),
+                          );
+                        }
+                    )
+                  ],
                 ),
-                */
+                child: ListTile(
+                  leading: Icon(
+                    Icons.handyman,
+                    color: Colors.deepPurple,
+                  ),
+                  title: Text(items['Item_name']),
+                  subtitle: Text('${items['Description'].toString()}'),
+                ),
               );
             },
           );
@@ -47,7 +79,7 @@ class WarehousePage extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,MaterialPageRoute(
-              builder: (context)=> addItem()
+              builder: (context)=> Item()
             ),
           );
         },

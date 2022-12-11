@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/services/firestore_service.dart';
 
 Widget FormPadding(Widget input) =>
     Padding(

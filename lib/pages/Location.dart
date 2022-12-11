@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/pages/Forms/AddLocationForm.dart';
+import 'package:warehouse/pages/Forms/LocationForm.dart';
 
-class addLocation extends StatelessWidget {
-  const addLocation({super.key});
+class Location extends StatelessWidget {
+  const Location({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class addLocation extends StatelessWidget {
           backgroundColor: globals.mainColor,
         ),
         body: const Center(
-          child: AddLocationForm(),
+          child: LocationForm(),
         ),
       ),
     );

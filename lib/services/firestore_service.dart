@@ -1,29 +1,33 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
-  //obtener los productos
+  //obtener todos
   Stream<QuerySnapshot> getAllItems() {
-    return FirebaseFirestore.instance.collection('Item').snapshots();
+    return FirebaseFirestore.instance.collection('Item').orderBy("Favorite").snapshots();
+  }
+
+  //obtener 1
+  DocumentReference getItem(String id) {
+    return FirebaseFirestore.instance.collection('Item').doc(id);
   }
 
   //agregar
-  Future agregarItems(String Item_name, String Type_name, String State, String Description, bool Favourite) {
+  Future addItem(String Item_name, String Type_name, String State, String Description, bool Favourite) {
     return FirebaseFirestore.instance.collection('Item').doc().set({
       'Item_name' : Item_name,
       'Type_name' : Type_name,
       'State' : State,
       'Description' : Description,
-      'Favourite' : Favourite,
+      'Favorite' : Favourite,
       'Deleted' : false
     });
   }
 
   //borrar
-  Future borrarItems(String id) {
+  Future deleteItem(String id) {
     return FirebaseFirestore.instance.collection('Item').doc(id).delete();
   }
+
   Stream<QuerySnapshot> getAllLocations() {
     return FirebaseFirestore.instance.collection('Location').snapshots();
   }

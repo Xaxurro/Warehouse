@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:warehouse/pages/addLocation.dart';
+import 'package:warehouse/pages/Location.dart';
 import 'package:warehouse/globals.dart' as globals;
 
 import '../services/firestore_service.dart';
@@ -63,7 +63,7 @@ class LocationsPage extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,MaterialPageRoute(
-              builder: (context)=> addLocation()
+              builder: (context)=> Location()
             ),
           );
         },

@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
-import 'package:warehouse/pages/Forms/AddItemForm.dart';
+import 'package:warehouse/pages/Forms/EditItemForm.dart';
 
-class addItem extends StatelessWidget {
+import 'Forms/AddItemForm.dart';
+
+class Item extends StatelessWidget {
+  String lbl = "";
+  String id = "";
+
+  //Constructor sin parametros
+  Item() {
+    lbl = "Add Item";
+  }
+
+  //Constructor edit con parametros
+  Item.edit(String this.id) {
+    lbl = "Edit Item";
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Add Item',
+      title: lbl,
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -18,11 +33,12 @@ class addItem extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          title: const Text('Add item'),
+          title: Text(lbl),
           centerTitle: true,
           backgroundColor: globals.mainColor,
         ),
-        body: AddItemForm(),
+        //Dependiendo de la label que se eligio se decide si se debe editar un item existente o añadir uno nuevo
+        body: (lbl == "Edit Item") ? EditItemForm(id: id) : AddItemForm(),
         ),
       
     );
