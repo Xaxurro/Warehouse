@@ -7,22 +7,18 @@ import '../../services/firestore_service.dart';
 
 class EditItemForm extends StatefulWidget {
   //Se declara la variable que va a ser requerida para instanciar un objeto
-  final String? id;
-  const EditItemForm({super.key, required this.id});
+  EditItemForm({super.key, required this.id});
 
+  static final String? id;
+  Future<Map<String, dynamic>> data = FirestoreService().getItem(id.toString());
 
   @override
   EditItemFormState createState() {
-    //Obtenemos el doc especifico, aplicamos metodo get para recibir los datos y el metodo then para procesar todos los datos recibidos (1)
-    FirestoreService().getItem(id.toString()).get().then(
-      (DocumentSnapshot ds) {
-        //Lo parseamos a un map (Diccionario)
-        final data = ds.data() as Map<String, dynamic>;
-      }
-    );
     return EditItemFormState();
   }
 }
+
+
 
 class EditItemFormState extends State<EditItemForm> {
   final _formKey = GlobalKey<FormState>();
@@ -32,17 +28,18 @@ class EditItemFormState extends State<EditItemForm> {
   final description = TextEditingController();
   String state = "";
   bool favorite = false;
-  final stock = TextEditingController();
+
+  void setData(){
+    item_name.text = widget.data['Item_name'];
+    type_name = widget.data['Type_name'];
+    description.text = widget.data['Description'];
+    state = widget.data['State'];
+    favorite = widget.data['Favorite'];
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.data)
-    item_name.text = data["Item_name"];
-    type_name = data["Type_name"];
-    description.text = data["Description"];
-    state = data["State"];
-    favorite = data["Favorite"];
-    data.forEach((key, value) {print(key + " : " + value.toString());});
+    setData();
 
     return Form(
       key: _formKey,
@@ -125,9 +122,7 @@ class EditItemFormState extends State<EditItemForm> {
       
             FormValidation(context, () {
               if (_formKey.currentState!.validate()) {
-                for(int i = int.parse(stock.text); i > 0; i--){
-                  FirestoreService().addItem(item_name.text, type_name, state, description.text, favorite);
-                }
+                FirestoreService().addItem(item_name.text, type_name, state, description.text, favorite);
                 //Navigator.of(context).pop();
               }
             })

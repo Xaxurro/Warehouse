@@ -7,8 +7,14 @@ class FirestoreService {
   }
 
   //obtener 1
-  DocumentReference getItem(String id) {
-    return FirebaseFirestore.instance.collection('Item').doc(id);
+  Future<Map<String, dynamic>> getItem(String id) {
+    return FirebaseFirestore.instance.collection('Item').doc(id).get().then(
+            (DocumentSnapshot ds) {
+          print("ID: " + id);
+          //Lo parseamos a un map (Diccionario)
+          return ds.data() as Map<String, dynamic>;
+        }
+    );;
   }
 
   //agregar
