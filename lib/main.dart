@@ -1,14 +1,13 @@
 // import 'package:ejemplo_firebase/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:warehouse/globals.dart' as globals;
 import 'package:warehouse/pages/Dashboard.dart';
 import 'package:warehouse/pages/Warehouse.dart';
 import 'package:warehouse/pages/Locations.dart';
 import 'package:warehouse/pages/Profile.dart';
-import 'package:warehouse/pages/login_page.dart';
+// import 'package:warehouse/pages/Login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

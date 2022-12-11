@@ -2,23 +2,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
   //obtener los productos
-  Stream<QuerySnapshot> productos() {
-    // return FirebaseFirestore.instance.collection('productos').snapshots();
-    int limite = 10;
-    return FirebaseFirestore.instance.collection('productos').where('stock', isLessThan: limite).snapshots();
+  Stream<QuerySnapshot> getAll() {
+    return FirebaseFirestore.instance.collection('Item').snapshots();
   }
 
   //agregar
-  Future agregar(String codProducto, String nombre, int stock) {
-    return FirebaseFirestore.instance.collection('productos').doc().set({
-      'cod_producto': codProducto,
-      'nombre': nombre,
-      'stock': stock,
+  Future agregar(String Item_name, String Type_name, String State, String Description) {
+    return FirebaseFirestore.instance.collection('Item').doc().set({
+      'Item_name' : Item_name,
+      'Type_name' : Type_name,
+      'State' : State,
+      'Description' : Description,
+      'Deleted' : false
     });
   }
 
   //borrar
-  Future borrar(String productoId) {
-    return FirebaseFirestore.instance.collection('productos').doc(productoId).delete();
+  Future borrar(String id) {
+    return FirebaseFirestore.instance.collection('Item').doc(id).delete();
   }
 }

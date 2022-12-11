@@ -86,7 +86,7 @@ class AddItemFormState extends State<AddItemForm> {
             //Descripcion
             InputTextArea("Description (Optional)", ItemDescription, (value) {return null;}),
       
-            FormValidation(context, _formKey)
+            FormValidation(context, _formKey, "Item")
           ],
         ),
       ),

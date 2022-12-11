@@ -7,7 +7,7 @@ Widget FormPadding(Widget input) =>
       child: input,
     );
   
-Widget FormValidation(BuildContext context, GlobalKey<FormState> formKey) => FormPadding(
+Widget FormValidation(BuildContext context, GlobalKey<FormState> formKey, String tabla) => FormPadding(
     ElevatedButton(
       onPressed: () {
         if (formKey.currentState!.validate()) {

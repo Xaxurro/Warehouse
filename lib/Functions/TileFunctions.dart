@@ -23,12 +23,13 @@ ListTile tilePage(String title, String subtitle, IconData icon, BuildContext con
       );
     } ,
   );
-ListTile tileFunction(String title, String subtitle, IconData icon, BuildContext context, Function function) => 
+
+ListTile tileFunction(String title, String subtitle, IconData icon, BuildContext context, void Function()? function) => 
   ListTile(
     title: Text(title, style: DefaultStyle.Title,),
     subtitle: Text(subtitle),
     leading: Icon(icon),
-    onTap: () => function,
+    onTap: function,
   );
 
 ListTile tileColor(String title, String subtitle, IconData icon, Color color, BuildContext context) => 

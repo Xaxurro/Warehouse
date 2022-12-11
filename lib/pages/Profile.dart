@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warehouse/pages/Options/changeColor.dart';
 import 'package:warehouse/Functions/TileFunctions.dart';
-import 'package:warehouse/pages/login_page.dart';
+import 'package:warehouse/pages/Login.dart';
 
 class ConfigPage extends StatelessWidget {
   const ConfigPage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class ConfigPage extends StatelessWidget {
           'Exit',
           Icons.logout,
           context,
-          (context) async{
+          () async{
             await FirebaseAuth.instance.signOut();
 
             //borrar user email de shared preferences
@@ -29,8 +29,9 @@ class ConfigPage extends StatelessWidget {
             //redirigir al login
             MaterialPageRoute route = MaterialPageRoute(builder: ((context) => LoginPage()));
             Navigator.pushReplacement(context, route);
-                })
-          ],
+          }
+        )
+      ],
     );
   }
   
