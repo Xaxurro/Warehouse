@@ -106,7 +106,7 @@ class AddItemFormState extends State<AddItemForm> {
             FormValidation(context, () {
               if (_formKey.currentState!.validate()) {
                 for(int i = int.parse(stock.text); i > 0; i--){
-                  FirestoreService().agregar(item_name.text, type_name, state, description.text, favorite);
+                  FirestoreService().agregarItems(item_name.text, type_name, state, description.text, favorite);
                 }
                 //Navigator.of(context).pop();
               }

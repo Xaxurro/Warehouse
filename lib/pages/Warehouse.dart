@@ -11,7 +11,7 @@ class WarehousePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: FirestoreService().getAll(),
+        stream: FirestoreService().getAllItems(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData || snapshot.connectionState == ConnectionState.waiting) {
             return Center(
