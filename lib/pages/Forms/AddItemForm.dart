@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:warehouse/Functions/FormFunctions.dart';
 
+import '../../services/firestore_service.dart';
+
 class AddItemForm extends StatefulWidget {
   const AddItemForm({super.key});
 
@@ -14,12 +16,12 @@ class AddItemForm extends StatefulWidget {
 class AddItemFormState extends State<AddItemForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final ItemName = TextEditingController();
-  final ItemStock = TextEditingController();
-  final ItemDescription = TextEditingController();
-  String ItemState = "Null";
-  String ItemCategory = "Null";
-  bool favourite = false;
+  final item_name = TextEditingController();
+  final stock = TextEditingController();
+  final description = TextEditingController();
+  String state = "";
+  String type_name = "";
+  bool favorite = false;
 
 
   @override
@@ -31,7 +33,7 @@ class AddItemFormState extends State<AddItemForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Nombre
-            InputText("Name", ItemName, (value) {
+            InputText("Name", item_name, (value) {
               if (value == null || value.isEmpty) {
                 return "Enter Name";
               }
@@ -39,7 +41,7 @@ class AddItemFormState extends State<AddItemForm> {
             }),
       
             //Stock
-            InputNumber("Stock", ItemStock, (value) {
+            InputNumber("Stock", stock, (value) {
               if (value == null || value.isEmpty) {
                 return "Enter Stock";
               }
@@ -54,58 +56,64 @@ class AddItemFormState extends State<AddItemForm> {
                 ListTile(
                   leading: Icon(Icons.warehouse),
                   title: Text("Warehouse"),
-                  onTap: () => selectItem("Warehouse"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    setState(() {
+                    state = "Warehouse";
+                    });
+                  },
                 ),
                 ListTile(
                   leading: Icon(CupertinoIcons.car),
                   title: Text("Terrain"),
-                  onTap: () => selectItem("Terrain"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    setState(() {
+                      state = "Terrain";
+                    });
+                  },
                 ),
               ]
             ),
             
             //Categoria
             InputSelection(
-              "Category",
+              "Type",
               context,
               [
                 ListTile(
                   title: Text("test"),
-                  onTap: () => selectItem("test"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    setState(() {
+                      type_name = "test";
+                    });
+                  },
                 ),
               ]
             ),
       
             //Favorito
-            InputBoolean("Favourite", favourite, (value) {
+            InputBoolean("Favourite", favorite, (value) {
                 setState(() {
-                  favourite = !favourite;
+                  favorite = !favorite;
                 });
             }),
       
             //Descripcion
-            InputTextArea("Description (Optional)", ItemDescription, (value) {return null;}),
+            InputTextArea("Description (Optional)", description, (value) {return null;}),
       
-            FormValidation(context, _formKey, "Item")
+            FormValidation(context, () {
+              if (_formKey.currentState!.validate()) {
+                for(int i = int.parse(stock.text); i > 0; i--){
+                  FirestoreService().agregar(item_name.text, type_name, state, description.text, favorite);
+                }
+                //Navigator.of(context).pop();
+              }
+            })
           ],
         ),
       ),
     );
-  }
-
-  void selectItem(String state) {
-    Navigator.pop(context);
-    setState(() {
-      ItemState = state;
-      print(ItemState);
-    });
-  }
-
-  void selectCategory(String category) {
-    Navigator.pop(context);
-    setState(() {
-      ItemCategory = category;
-      print(ItemCategory);
-    });
   }
 }

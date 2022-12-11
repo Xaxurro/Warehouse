@@ -7,12 +7,13 @@ class FirestoreService {
   }
 
   //agregar
-  Future agregar(String Item_name, String Type_name, String State, String Description) {
+  Future agregar(String Item_name, String Type_name, String State, String Description, bool Favourite) {
     return FirebaseFirestore.instance.collection('Item').doc().set({
       'Item_name' : Item_name,
       'Type_name' : Type_name,
       'State' : State,
       'Description' : Description,
+      'Favourite' : Favourite,
       'Deleted' : false
     });
   }

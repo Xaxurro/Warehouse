@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse/globals.dart' as globals;
+import 'package:warehouse/services/firestore_service.dart';
 
 Widget FormPadding(Widget input) =>
     Padding(
@@ -7,15 +8,9 @@ Widget FormPadding(Widget input) =>
       child: input,
     );
   
-Widget FormValidation(BuildContext context, GlobalKey<FormState> formKey, String tabla) => FormPadding(
+Widget FormValidation(BuildContext context, void Function() function) => FormPadding(
     ElevatedButton(
-      onPressed: () {
-        if (formKey.currentState!.validate()) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Validating Data')),
-          );
-        }
-      },
+      onPressed: function,
       child: const Text('Submit'),
       style: ElevatedButton.styleFrom(
         backgroundColor: globals.mainColor
@@ -25,6 +20,7 @@ Widget FormValidation(BuildContext context, GlobalKey<FormState> formKey, String
 
 Widget InputText(String label, TextEditingController controller, String? Function(String?)? validation) => FormPadding(
   TextFormField(
+    controller: controller,
     decoration: InputDecoration(
       border: OutlineInputBorder(),
       labelText: label
@@ -35,6 +31,7 @@ Widget InputText(String label, TextEditingController controller, String? Functio
 
 Widget InputTextArea(String label, TextEditingController controller, String? Function(String?)? validation) => FormPadding(
   TextFormField(
+    controller: controller,
     decoration: InputDecoration(
       border: OutlineInputBorder(),
       labelText: label
@@ -46,6 +43,7 @@ Widget InputTextArea(String label, TextEditingController controller, String? Fun
 
 Widget InputNumber(String label, TextEditingController controller, String? Function(String?)? validation) => FormPadding(
   TextFormField(
+    controller: controller,
     decoration: InputDecoration(
       border: OutlineInputBorder(),
       labelText: label,

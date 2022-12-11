@@ -29,7 +29,7 @@ class WarehousePage extends StatelessWidget {
                   color: Colors.deepPurple,
                 ),
                 title: Text(items['Item_name']),
-                subtitle: Text('Description:${items['Description'].toString()}'),
+                subtitle: Text('${items['Description'].toString()}'),
                 /*
                 trailing: OutlinedButton(
                   child: Text('Borrar'),
