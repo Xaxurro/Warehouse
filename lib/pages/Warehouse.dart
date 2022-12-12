@@ -6,16 +6,19 @@ import 'package:warehouse/pages/Item.dart';
 import 'package:warehouse/globals.dart' as globals;
 import 'package:warehouse/services/firestore_service.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+
 class WarehousePage extends StatelessWidget {
   const WarehousePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(actions: [Icon(Icons.more_vert)]),
       body: StreamBuilder(
         stream: FirestoreService().getAllItems(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData || snapshot.connectionState == ConnectionState.waiting) {
+          if (!snapshot.hasData ||
+              snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(),
             );
@@ -38,8 +41,7 @@ class WarehousePage extends StatelessWidget {
                         //Elimina ese item
                         onPressed: (context) {
                           FirestoreService().deleteItem(items.id);
-                        }
-                    )
+                        })
                   ],
                 ),
                 //derecha a izq
@@ -53,13 +55,12 @@ class WarehousePage extends StatelessWidget {
                         //Ir a editar ese item
                         onPressed: (context) {
                           Navigator.push(
-                            context,MaterialPageRoute(
-                            //Se llama al contructor edit de la clase Item, recibe el id del item como parametro
-                              builder: (context)=> Item.edit(items.id)
-                            ),
+                            context,
+                            MaterialPageRoute(
+                                //Se llama al contructor edit de la clase Item, recibe el id del item como parametro
+                                builder: (context) => Item.edit(items.id)),
                           );
-                        }
-                    )
+                        })
                   ],
                 ),
                 child: ListTile(
@@ -69,6 +70,14 @@ class WarehousePage extends StatelessWidget {
                   ),
                   title: Text(items['Item_name']),
                   subtitle: Text('${items['Description'].toString()}'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          //Se llama al contructor edit de la clase Item, recibe el id del item como parametro
+                          builder: (context) => Item.edit(items.id)),
+                    );
+                  },
                 ),
               );
             },
@@ -78,9 +87,8 @@ class WarehousePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-            context,MaterialPageRoute(
-              builder: (context)=> Item()
-            ),
+            context,
+            MaterialPageRoute(builder: (context) => Item()),
           );
         },
         child: const Icon(Icons.add),

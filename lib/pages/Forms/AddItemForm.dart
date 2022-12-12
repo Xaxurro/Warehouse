@@ -8,7 +8,6 @@ import '../../services/firestore_service.dart';
 class AddItemForm extends StatefulWidget {
   const AddItemForm({super.key});
 
-
   @override
   AddItemFormState createState() {
     return AddItemFormState();
@@ -52,32 +51,28 @@ class AddItemFormState extends State<AddItemForm> {
             //Estado
             Row(
               children: [
-                InputSelection(
-                    "State",
-                    context,
-                    [
-                      ListTile(
-                        leading: Icon(Icons.warehouse),
-                        title: Text("Warehouse"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          setState(() {
-                            state = "Warehouse";
-                          });
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(CupertinoIcons.car),
-                        title: Text("Terrain"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          setState(() {
-                            state = "Terrain";
-                          });
-                        },
-                      ),
-                    ]
-                ),
+                InputSelection("State", context, [
+                  ListTile(
+                    leading: Icon(Icons.warehouse),
+                    title: Text("Warehouse"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      setState(() {
+                        state = "Warehouse";
+                      });
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(CupertinoIcons.car),
+                    title: Text("Terrain"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      setState(() {
+                        state = "Terrain";
+                      });
+                    },
+                  ),
+                ]),
                 Text(state),
               ],
             ),
@@ -85,21 +80,17 @@ class AddItemFormState extends State<AddItemForm> {
             //Categoria
             Row(
               children: [
-                InputSelection(
-                    "Type",
-                    context,
-                    [
-                      ListTile(
-                        title: Text("test"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          setState(() {
-                            type_name = "test";
-                          });
-                        },
-                      ),
-                    ]
-                ),
+                InputSelection("Type", context, [
+                  ListTile(
+                    title: Text("test"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      setState(() {
+                        type_name = "test";
+                      });
+                    },
+                  ),
+                ]),
                 Text(type_name),
               ],
             ),
@@ -112,12 +103,15 @@ class AddItemFormState extends State<AddItemForm> {
             }),
 
             //Descripcion
-            InputTextArea("Description (Optional)", description, (value) {return null;}),
+            InputTextArea("Description (Optional)", description, (value) {
+              return null;
+            }),
 
             FormValidation(context, () {
               if (_formKey.currentState!.validate()) {
-                for(int i = int.parse(stock.text); i > 0; i--){
-                  FirestoreService().addItem(item_name.text, type_name, state, description.text, favorite);
+                for (int i = int.parse(stock.text); i > 0; i--) {
+                  FirestoreService().addItem(item_name.text, type_name, state,
+                      description.text, favorite);
                 }
                 //Navigator.of(context).pop();
               }

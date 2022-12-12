@@ -39,8 +39,7 @@ class Item extends StatelessWidget {
         ),
         //Dependiendo de la label que se eligio se decide si se debe editar un item existente o añadir uno nuevo
         body: (lbl == "Edit Item") ? EditItemForm(id: id) : AddItemForm(),
-        ),
-      
+      ),
     );
   }
 }
