@@ -68,7 +68,7 @@ class FirestoreService {
   //   return FirebaseFirestore.instance.doc(id).get();
   // }
 
-  Future<Map<String, dynamic>> getEmployee(String id) {
+  Future<String> getEmployee(String id) {
     return FirebaseFirestore.instance
         .collection('Employee')
         .doc(id)
@@ -76,7 +76,7 @@ class FirestoreService {
         .then((DocumentSnapshot ds) {
       print("ID: " + id);
       //Lo parseamos a un map (Diccionario)
-      return ds.data() as Map<String, dynamic>;
+      return ds.data().toString();
     });
   }
 }
